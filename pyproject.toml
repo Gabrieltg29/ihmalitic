@@ -5,7 +5,9 @@ description = "Software for calculating financial and laboratory expenses"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
+    "dj-database-url>=2.3.0",
     "django>=5.1.7",
+    "psycopg2-binary>=2.9.10",
 ]
 
 [dependency-groups]
