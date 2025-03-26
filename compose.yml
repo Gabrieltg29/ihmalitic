@@ -1,0 +1,27 @@
+services:
+  ihmalitic:
+    container_name: ihmalitic
+    build: .
+    env_file: .env
+    ports:
+      - "5689:8000"
+    volumes:
+      - ./src/:/app/src/
+    depends_on:
+      - db_ihmalitic
+
+  db_ihmalitic:
+    container_name: db_ihmalitic
+    image: postgres:15.12
+    env_file: .env
+    volumes:
+      - db_ihmalitic:/var/lib/postgresql/data
+    ports:
+      - "5455:5432"
+    environment:
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_DB=${DB_NAME}
+      - POSTGRES_USER=${DB_USER}
+
+volumes:
+  db_ihmalitic:
