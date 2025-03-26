@@ -1,7 +1,7 @@
 [project]
 name = "ihmalitic"
 version = "0.1.0"
-description = "Add your description here"
+description = "Software for calculating financial and laboratory expenses"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
