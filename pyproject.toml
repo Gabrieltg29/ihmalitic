@@ -12,9 +12,24 @@ dependencies = [
 
 [dependency-groups]
 dev = [
+    "poethepoet>=0.33.1",
     "pytest>=8.3.5",
     "pytest-cov>=6.0.0",
     "pytest-django>=4.10.0",
     "pytest-factoryboy>=2.7.0",
     "ruff>=0.11.2",
 ]
+
+[tool.pytest.ini_options]
+addopts = "--cov=ihmalitic --cov-report=term-missing"
+python_files = "**/**/test*.py test_*.py"
+DJANGO_SETTINGS_MODULE = "ihmalitic.settings"
+pythonpath = "src"
+testpaths = ["src/**/tests"]
+
+[tool.poe.tasks]
+migrate = "python src/manage.py migrate"
+makemigrate = "python src/manage.py makemigrations"
+runserver = "python src/manage.py runserver"
+buid_css = "src/public/lib/tailwindcss -i src/public/css/input.css -o src/public/css/style.css"
+watch_css = "src/public/lib/tailwindcss -i src/public/css/input.css -o src/public/css/style.css --watch"
