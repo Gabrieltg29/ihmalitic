@@ -1,0 +1,16 @@
+{% load static %}
+{% load i18n %}
+<!DOCTYPE html>
+<html data-theme="cupcake">
+    <header>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+        <title>Ihmalitic</title>
+        <script type="module" src="{% static 'js/cally.js' %}"></script>
+        <script type="module" src="{% static 'js/htmx.min.js' %}"></script>
+    </header>
+    <body>
+        <main>
+            {% block content %}{% endblock %}
+        </main>
+    </body>
+</html>

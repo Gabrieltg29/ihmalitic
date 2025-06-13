@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="hero bg-base-200 min-h-screen">
+        <div class="hero-content flex-col lg:flex-row-reverse">
+            <div class="ml-8 text-center lg:text-left">
+                <h1 class="text-7xl font-bold !important">Ihmalitic</h1>
+                <p class="py-6">Plataforma de analise financeira</p>
+            </div>
+            <div class="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
+                <div class="card-body">
+                    <form action="" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <fieldset class="fieldset">
+                            <label class="fieldset-label">Email</label>
+                            <input type="email" name="email" class="input validator" placeholder="Email" />
+                            <label class="fieldset-label">Senha</label>
+                            <input type="password"
+                                   name="password"
+                                   class="input validator"
+                                   placeholder="Password" />
+                            <div>
+                                <a class="link link-hover">Esqueci a senha</a>
+                            </div>
+                        </fieldset>
+                        <button class="btn btn-neutral w-full mt-4" type="submit">Entrar</button>
+                    </form>
+                    {% if messages %}
+                        {% for message in messages %}
+                            <div role="alert" class="alert alert-error alert-soft">
+                                <span>{{ message }}</span>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                </body>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
